@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Site extends CI_Controller {
 
+  function __construct() {
+      parent::__construct();
+      $this->load->helper('url');
+  }
+
+
+  public function homeRedirect() {
+    redirect("/site", "refresh");
+  }
+
   public function index(){
     $this->home();
   }
@@ -19,14 +29,13 @@ class Site extends CI_Controller {
     $data['subTotal'] = $this->math->sub($data['val1'], $data['val2']);
 
 
-    $this->load->view("home_view", $data);
+    $this->load->view("index", $data);
   }
 
   public function addStuff(){
     $this->load->model("math"); // Load the model
     echo $this->math->add(50, 2); // Access it's add() function
   }
-
 
   function about(){
     $data['title'] = "About";
@@ -105,12 +114,21 @@ class Site extends CI_Controller {
   }
 
 
+  public function loadHomePage() {
+     echo $this->load->view('home_view', '', true);
+   }
 
+   public function loadAboutPage() {
+     echo $this->load->view('about_view', '', true);
+   }
 
+   public function loadDbPage() {
+     echo $this->load->view('db_view', '', true);
+   }
 
-
-
-
+   public function loadNewUserPage() {
+     echo $this->load->view('new_user', '', true);
+   }
 
 
 
