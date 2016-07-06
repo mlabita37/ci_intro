@@ -21,20 +21,15 @@
 
 
 
-<table ng-controller="UserController" class="table table-bordered table-condensed table-responsive">
-  <thead>
-    <tr>
-      <td>ID:</td>
-      <td>Email:</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <td>{{user.id}}</td>
-      <td>{{user.email}}</td>
-    </tr>
-  </tbody>
-</table>
+<!-- <table ng-controller="UserController" class="table table-bordered table-condensed table-responsive"> -->
+      <!-- <li>ID:</li>
+      <li>Email:</li> -->
+
+<ul id="myList" class="list-group">
+      <li ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize"><span class="label label-default label-pill pull-xs-right">{{user.id}}</span> {{user.email}}</li>
+</ul>
+
+
 
 <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
   Previous
