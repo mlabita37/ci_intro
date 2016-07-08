@@ -38,3 +38,15 @@
 <button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
   Next
 </button>
+
+
+<div ng-controller="SearchCtrl">
+<form class="well form-search">
+  <label>Search:</label>
+  <input type="text" ng-model="search.keywords" class="input-medium search-query" placeholder="Keywords...">
+  <button type="submit" class="btn" ng-click="search()">Search</button>
+  </form>
+  <pre ng-model="search.result">
+{{result}}
+</pre>
+ </div>

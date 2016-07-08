@@ -54,6 +54,15 @@ class User_model extends CI_Model {
         return $this->db->from($this->table_name)->get()->result_array();
     }
 
+    // public function search(){
+    //   $data = file_get_contents("php://input");
+    //
+    //   $objData = json_decode($data);
+    //
+    //
+    // }
+
+
 }
 
 
